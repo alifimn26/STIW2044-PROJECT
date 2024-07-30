@@ -1,251 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HOME</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Interface</title>
+    <style>
+        body {
+            font-family: 'Kumbh Sans', Arial, sans-serif;
+            background-color: #100f0f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
 
+        .container {
+            align-items: center;
+            text-align: center;
+            background-color: rgb(41, 40, 40);
+            padding: 50px;
+            margin: 50px;
+            width: 355px;
+            height: 500px;
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 7.9vh;
+            background-color: #ff8177;
+            background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+            background-size: 100%;
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-text-fill-color: transparent;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .W-img-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        #W-img {
+            padding: 0;
+            width: 150px;
+            height: 150px;
+            filter: brightness(95%);
+        }
+
+        p {
+            font-size: 25px;
+            color: #ffffff;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            padding: 1px 0.5rem;
+            margin: 20px;
+        }
+
+        .button1, .button2 {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: #8c8c8c solid 0.5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 10px 100px;
+            font-size: 25px;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .button1 {
+            color: #15bd77;
+        }
+
+        .button2 {
+            background-color: #15bd77;
+            color: white;
+        }
+
+        .button1:hover {
+            background-color: #a8b4c2;
+        }
+
+        .button2:hover {
+            background-color: #09ee78;
+        }
+
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+                margin: 20px;
+                height: auto;
+                border-radius: 25px;
+            }
+
+            h1 {
+                font-size: 6vh;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button1, .button2 {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+
+            #W-img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
 <body>
-  <!-- Navbar Section -->
-  <nav class="navbar">
-    <div class="navbar__container">
-      <a href="index.html" id="navbar__logo"><i class="fas fa-globe-europe"></i>JOMTRAVEL </a>
-      <div class="navbar__toggle" id="mobile-menu">
-        <span class="bar"></span> <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <ul class="navbar__menu">
-        <li class="navbar__item">
-          <a href="index.html" class="navbar__links">Home</a>
-        </li>
-        <li class="navbar__item">
-          <a href="packages.html" class="navbar__links">Packages</a>
-        </li>
-        <li class="navbar__item">
-          <a href="locations.html" class="navbar__links">Location</a>
-        </li>
-        <li class="navbar__item">
-          <a href="Booking.html" class="navbar__links">Book Now</a>
-        </li>
-        <li class="navbar__item"><a href="BookingList.php" class="navbar__links">Booking Management</a>
-        </li>
-
-        <li class="navbar__btn">
-          <a href="logout.php" class="buttonout">Sign Out</a>
-        </li>
-      </ul>
+    <div class="container">
+        <h1>Welcome to JOMTRAVEL!</h1>
+        <p>Your simple travel companion</p>
+        <div class="W-img-container">
+            <img id="W-img" src="./Img/flight.png" alt="">
+        </div>
+        <div class="buttons">
+            <a class="button1" href="signin.html">Sign In</a>
+            <a class="button2" href="signup.html">Sign Up</a>
+        </div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-   
-  <div class="main">
     
-    <div class="main__container">
-        <video src="./files/bgvid.mp4" type="video/mp4" autoplay muted loop></video>
-      <div class="main__content">
-        <div class="main_text">
-          <h1> WELCOME TO JOMTRAVEL</h1>
-          <H4>A GREAT JOURNEY BEGIN WITH A SMALL STEP</H4>
-      </div>
-        <button class="main__btn"><a href="Booking.html">REGISTER NOW</a></button>
-      </div>
-      
-    </div>
-  </div>
-
-<!-- Locations -->
-<section class="locations" id="locations">
-    <div class="package-title">
-        <h2>Pick Your Locations</h2>
-    </div>
-
-    <div class="location-content">
-        
-        <a href="./locations.html#kashmir" target="_blank"><div class="col-content">
-            <img src="./files/l1.jpg" alt="">
-            <h5>India</h5>
-            <p>Kashmir</p>
-        </div></a>
-
-       
-
-        <a href="./locations.html#istanbul" target="_blank"><div class="col-content">
-            <img src="./files/l2.jpg" alt="">
-            <h5>Turkey</h5>
-            <p>Istanbul</p>
-        </div></a>
-
-        <a href="./locations.html#paris" target="_blank"><div class="col-content">
-            <img src="./files/l3.jpg" alt="">
-            <h5>France</h5>
-            <p>Paris</p>
-        </div></a>
-
-        <a href="./locations.html#bali" target="_blank"><div class="col-content">
-            <img src="./files/l4.jpg" alt="">
-            <h5>Indonesia</h5>
-            <p>Bali</p>
-        </div></a>
-
-        <a href="./locations.html#dubai" target="_blank"><div class="col-content">
-            <img src="./files/l5.jpg" alt="">
-            <h5>United Arab Emirates</h5>
-            <p>Dubai</p>
-        </div></a>
-
-        <a href="./locations.html#geneva" target="_blank"><div class="col-content">
-            <img src="./files/l6.jpg" alt="">
-            <h5>Switzerland</h5>
-            <p>Geneva</p>
-        </div></a>
-
-        <a href="./locations.html#port-blair" target="_blank"><div class="col-content">
-            <img src="./files/l7.jpg" alt="">
-            <h5>Andaman & Nicobar</h5>
-            <p>Port Blair</p>
-        </div></a>
-
-        <a href="./locations.html#rome" target="_blank"><div class="col-content">
-            <img src="./files/rome-potrait.jpg" alt="">
-            <h5>Italy</h5>
-            <p>Rome</p>
-        </div></a>
-
-    </div>
-</section>
-
-<!-- Packages -->
-<section class="package" id="package">
-  <div class="package-title">
-      <h2>Available Packages</h2>
-  </div>
-
-  <div class="package-content">
-      
-      <div  class="box">
-        <a href="./packages.html#bronze" target="_blank"> <div class="image">
-              <img src="./files/p1.jpg" alt="">
-              <h3>$2000</h3>
-          </div></a> 
-      
-      <div class="dest-content">
-          <div class="location">
-              <h4>Bronze</h4>
-              <ul class="pac-details">
-                  <li>2 Star Hotel</li>
-                  <li>5 Nights Stay</li>
-                  <li>Free photo Session</li>
-                  <li>Friendly Tour Guide</li>
-                  <li>24/7 Customer Help Center</li>
-              </ul>
-          </div>
-      </div>
-      </div>
-      
-      <div class="box">
-        <a href="./packages.html#silver" target="_blank"> <div class="image">
-              <img src="./files/p2.jpg" alt="">
-              <h3>$5000</charge>
-          </div></a>
-      
-      <div class="dest-content">
-          <div class="location">
-              <h4>Silver</h4>
-              <ul class="pac-details">
-                  <li>3 Star Hotel</li>
-                  <li>7 Nights Stay</li>
-                  <li>Free photo Session</li>
-                  <li>Friendly Tour Guide</li>
-                  <li>24/7 Customer Help Center</li>
-              </ul>
-          </div>
-      </div>
-      </div>
-
-      <div class="box">
-        <a href="./packages.html#gold" target="_blank"> <div class="image">
-              <img src="./files/p3.jpg" alt="">
-              <h3>$10,000</h3>
-          </div></a>
-      
-      <div class="dest-content">
-          <div class="location">
-              <h4>Gold</h4>
-              <ul class="pac-details">
-                  <li>4 Star Hotel</li>
-                  <li>10 Nights Stay</li>
-                  <li>Breakfast and Dinner</li>
-                  <li>Free photo Session</li>
-                  <li>Friendly Tour Guide</li>
-                  <li>24/7 Customer Help Center</li>
-              </ul>
-          </div>
-      </div>
-      </div>
-
-      <div class="box">
-        <a href="./packages.html#platinum" target="_blank"> <div class="image">
-              <img src="./files/p4.jpg" alt="">
-              <h3>$15,000</h3>
-          </div></a>
-      
-      <div class="dest-content">
-          <div class="location">
-              <h4>Platinum</h4>
-              <ul class="pac-details">
-                  <li>5 Star Hotel</li>
-                  <li>14 Nights Stay</li>
-                  <li>Breakfast, Lunch and Dinner</li>
-                  <li>Bornfire</li>
-                  <li>Free photo Session</li>
-                  <li>Friendly Tour Guide</li>
-                  <li>24/7 Customer Help Center</li>
-              </ul>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
-
-
-<!-- Footer -->
-<section class="footer">
-  <div class="foot">
-    <div class="footer-content">
-
-      <div class="footlinks">
-        <h4>Find Us Here</h4>
-        <div class="social">
-          <!-- Facebook Link -->
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-facebook'></i></a>
-          <!-- YouTube Link -->
-          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-youtube'></i></a>
-          <!-- GitHub Link -->
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
-          <!-- Map Web API-->
-          <a href="map.html" target="_blank"><i class="bi bi-map-fill"></i></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="end">
-      <p>Copyright © 2024 JomTravel  All Rights Reserved.</p>
-  </div>
-</section>
-  <script src="app.js"></script>
 </body>
-
 </html>

@@ -60,14 +60,14 @@ body {
     font-size: 1.2rem;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-home: 999;
 }
 
 .navbar__container {
     display: flex;
     justify-content: space-between;
     height: 80px;
-    z-index: 1;
+    z-home: 1;
     width: 100%;
     max-width: 1200px;
     margin-right: 0;
@@ -171,7 +171,7 @@ body {
         display: flex;
         justify-content: space-between;
         height: 80px;
-        z-index: 1;
+        z-home: 1;
         width: 100%;
         max-width: 1300px;
         padding: 0;
@@ -188,7 +188,7 @@ body {
         opacity: 1;
         transition: all 0.5s ease;
         height: 50vh;
-        z-index: -1;
+        z-home: -1;
     }
 
     .navbar__menu.active {
@@ -198,7 +198,7 @@ body {
         top: 100%;
         opacity: 1;
         transition: all 0.5s ease;
-        z-index: 99;
+        z-home: 99;
         height: 60vh;
         font-size: 1.6rem;
     }
@@ -508,7 +508,7 @@ table.booking-table th {
     <!-- Navbar Section -->
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="index.html" id="navbar__logo"><i class="fas fa-globe-europe"></i>JOMTRAVEL</a>
+            <a href="home.html" id="navbar__logo"><i class="fas fa-globe-europe"></i>JOMTRAVEL</a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -516,7 +516,7 @@ table.booking-table th {
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="home.html" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
                     <a href="packages.html" class="navbar__links">Packages</a>

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_email'] = $row['email'];
             
             // Redirect to home page
-            header("Location: index.html");
+            header("Location: home.html");
             exit();
         } else {
             echo "<script>alert('Invalid password'); window.location.href = 'signin.html';</script>";

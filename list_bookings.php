@@ -55,7 +55,7 @@ $result = $conn->query($sql);
 <body>
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="index.html" id="navbar__logo"><i class="fas fa-globe-europe"></i>JOMTRAVEL</a>
+            <a href="home.html" id="navbar__logo"><i class="fas fa-globe-europe"></i>JOMTRAVEL</a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -63,7 +63,7 @@ $result = $conn->query($sql);
             </div>
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="index.html" class="navbar__links">Home</a>
+                    <a href="home.html" class="navbar__links">Home</a>
                 </li>
                 <li class="navbar__item">
                     <a href="packages.html" class="navbar__links">Packages</a>
