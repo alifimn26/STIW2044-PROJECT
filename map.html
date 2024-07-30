@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js'></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    #search-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      z-index: 1;
+    }
+    #search-input {
+      width: 200px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    #search-button {
+      padding: 5px 10px;
+      margin-left: 5px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #search-button:hover {
+      background-color: #0056b3;
+    }
+    #location-button {
+      padding: 5px 10px;
+      margin-left: 10px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #location-button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="search-container">
+    <input type="text" id="search-input" placeholder="Search for a place..." />
+    <button id="search-button">Search</button>
+    <button id="location-button">Use My Location</button>
+  </div>
+  <script>
+    // Your Mapbox Access Token
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmVteXNoYWgwMyIsImEiOiJjbHl0eXBwdWoweDU5MnFzNnlucXQ1ODM5In0.F1qfTcmcaC4bkREOrBhcvA';
+
+    // Initialize Mapbox map
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-74.5, 40],
+      zoom: 9
+    });
+
+    // Function to fetch data from Mapbox Geocoding API
+    function fetchGeocodeData(query) {
+      const endpoint = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(query)}.json`;
+      const accessToken = 'pk.eyJ1IjoicmVteXNoYWgwMyIsImEiOiJjbHl0eXBwdWoweDU5MnFzNnlucXQ1ODM5In0.F1qfTcmcaC4bkREOrBhcvA';
+
+      fetch(`${endpoint}?access_token=${accessToken}`)
+        .then(response => response.json())
+        .then(data => {
+          // Handle the data here
+          console.log(data);
+          // Example: Display the first result on the map
+          if (data.features.length > 0) {
+            const [lng, lat] = data.features[0].center;
+            new mapboxgl.Marker()
+              .setLngLat([lng, lat])
+              .addTo(map);
+
+            map.setCenter([lng, lat]);
+            map.setZoom(14);
+          }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+
+    // Add event listener to the search button
+    document.getElementById('search-button').addEventListener('click', function() {
+      const query = document.getElementById('search-input').value;
+      if (query) {
+        fetchGeocodeData(query);
+      }
+    });
+
+    // Add event listener to the location button
+    document.getElementById('location-button').addEventListener('click', function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    });
+
+    function showPosition(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      map.setCenter([longitude, latitude]);
+      map.setZoom(14);
+      new mapboxgl.Marker()
+        .setLngLat([longitude, latitude])
+        .addTo(map);
+    }
+
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          alert("User denied the request for Geolocation.");
+          break;
+        case error.POSITION_UNAVAILABLE:
+          alert("Location information is unavailable.");
+          break;
+        case error.TIMEOUT:
+          alert("The request to get user location timed out.");
+          break;
+        case error.UNKNOWN_ERROR:
+          alert("An unknown error occurred.");
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
